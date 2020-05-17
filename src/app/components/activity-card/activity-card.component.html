@@ -1,0 +1,8 @@
+<div class="card" >
+    <div class="card-body">
+        <h5 class="card-title">{{activity.recipe}}</h5>
+        <h6 *ngIf="activity.description" class="card-subtitle mb-2 text-muted">{{activity.description}}</h6>
+        <!--<p class="card-text">{{activity.date | date : 'dd-MM-yyyy'}}</p>-->
+        <p class="card-text">{{activity.amount}}</p>
+    </div>
+</div>

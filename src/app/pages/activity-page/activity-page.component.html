@@ -1,0 +1,8 @@
+<header>
+</header>
+<ng-container *ngFor="let activity of (activities$ | async)">
+    <app-activity-card [activity]="activity"></app-activity-card>
+</ng-container>
+<footer>
+    <a class="btn btn-primary" [routerLink]="['/create']">New</a>
+</footer>

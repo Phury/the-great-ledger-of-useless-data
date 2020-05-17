@@ -1,0 +1,21 @@
+/*
+theme:
+
+input form font: Poppins 700
+display font: Montserrat 800
+*/
+
+body {
+    background: #08C3C2;
+    color: #F9F9F9;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@800&family=Roboto&display=swap');
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Alegreya', serif;
+}
+
+a, p {
+    font-family: 'Roboto', sans-serif;
+}

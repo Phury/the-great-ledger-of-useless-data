@@ -1,0 +1,66 @@
+<header>
+    <a class="btn btn-light" [routerLink]="['/activity']">home</a>
+</header>
+<div class="container">
+    <form>
+        <nav class="nav nav-pills nav-justified">
+            <ng-container *ngFor="let step of steps">
+                <a class="nav-item nav-link" 
+                    [ngClass]="steps[activeStep]===step ? 'active': ''" 
+                    (click)="stepTo(step)">
+                    {{step}}
+                </a>
+            </ng-container>
+        </nav>
+        <div class="step recipes" *ngIf="steps[activeStep]==='recipes'">
+            <h1>Recipes</h1>
+            <div class="form-group">
+                <input type="text" class="form-control" name="recipe" 
+                    [(ngModel)]="activity.recipe" 
+                    (keyup.enter)="selectRecipe($event.target.value)" />
+            </div>
+            <div class="form-group" *ngFor="let recipe of ['food', 'suburi', 'weight']">
+                <button type="button" class="btn btn-primary" (click)="selectRecipe(recipe)">{{recipe}}</button>
+            </div>
+        </div>
+        <div class="step amount" *ngIf="steps[activeStep]==='amount'">
+            <h1>Amount</h1>
+            <div class="form-group">
+                <input type="text" class="form-control" name="amount" 
+                    [(ngModel)]="activity.amount" 
+                    (keyup.enter)="selectAmount($event.target.value)" />
+            </div>
+            
+        </div>
+        <div class="step date" *ngIf="steps[activeStep]==='date'">
+            <h1>Date</h1>
+            <div class="form-group">
+                <input type="datetime" class="form-control" name="date" 
+                    [(ngModel)]="activity.date" 
+                    (keyup.enter)="selectRecipe($event.target.value)" />
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="selectDate('today')">Today</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="selectDate('morning')">Morning</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="selectDate('noon')">Noon</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="selectDate('evening')">Evening</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="selectDate('yesterday')">Yesterday</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="selectDate('tomorrow')">Tomorrow</button>
+            </div>
+        </div>
+    </form>
+    {{activity | json}}
+    <footer>
+        
+    </footer>
+</div>
