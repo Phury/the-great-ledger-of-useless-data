@@ -12,8 +12,8 @@ date
 */
 
 export interface Activity {
-    recipe: string;
-    description?: string;
-    amount?: string;
-    date?: Date;
+	recipe: string;
+	description?: string;
+	amount?: string;
+	date?: Date;
 }

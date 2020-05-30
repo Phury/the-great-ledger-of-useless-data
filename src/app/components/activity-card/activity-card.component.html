@@ -1,8 +1,18 @@
-<div class="card" >
-    <div class="card-body">
-        <h5 class="card-title">{{activity.recipe}}</h5>
-        <h6 *ngIf="activity.description" class="card-subtitle mb-2 text-muted">{{activity.description}}</h6>
-        <!--<p class="card-text">{{activity.date | date : 'dd-MM-yyyy'}}</p>-->
-        <p class="card-text">{{activity.amount}}</p>
-    </div>
+<div class="tile">
+	 <div class="tile-icon">
+	 <ng-container [ngSwitch]="activity.recipe">
+	 	<ng-container *ngSwitchCase="'suburi'">🥋</ng-container>
+	 	<ng-container *ngSwitchCase="'food'">🍜</ng-container>
+	 	<ng-container *ngSwitchCase="'expense'">💶</ng-container>
+	 	<ng-container *ngSwitchCase="'weight'">🏋️</ng-container>
+	 </ng-container>
+	</div>
+	<div class="tile-content">
+		<p class="tile-title">
+			<ng-container *ngIf="activity.description">{{activity.description}},</ng-container>
+			{{activity.amount}}
+			<span class="chip">{{activity.recipe}}</span>
+		</p>
+		<!--<p class="card-text">{{activity.date | date : 'dd-MM-yyyy'}}</p>-->
+	</div>
 </div>
